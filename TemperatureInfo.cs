@@ -11,7 +11,7 @@ namespace GetWeather
         public float Temp { get; set; }
         public float Feels_Like { get; set; }
 
-        public string Main { get; set; }
+        public int ID { get; set; }
 
     }
 }

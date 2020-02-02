@@ -16,6 +16,8 @@ namespace GetWeather
 {
     public partial class Form1 : Form
     {
+       
+        
         TimerCallback tm;
         System.Threading.Timer timer;
 
@@ -26,8 +28,9 @@ namespace GetWeather
             timer = new System.Threading.Timer(tm, null, 0, 600000);
         }
 
-        public static void GetData(object obj)
+        public void GetData(object obj)
         {
+            
             string temp, feels, state;
             string str;
             string url = "http://api.openweathermap.org/data/2.5/weather?q=Olmaliq&units=metric&appid=eb56dd43ccdd3b216d13940fa33e8616";
@@ -44,7 +47,10 @@ namespace GetWeather
             //temp = weatherResponse.Main.Temp.ToString();
             //feels = weatherResponse.Main.Feels_Like.ToString();
             //state = weatherResponse.Weather[0].Description;
-            str = weatherResponse.Main.Temp.ToString() + ";" + weatherResponse.Main.Feels_Like.ToString() + ";" + weatherResponse.Weather[0].Main;
+            str = weatherResponse.Main.Temp.ToString() + ";" + weatherResponse.Main.Feels_Like.ToString() + ";" + weatherResponse.Weather[0].ID.ToString();
+            this.Invoke((MethodInvoker)(() => lblContent.Text = "Content: " + str));
+            this.Invoke((MethodInvoker)(() => lblLastUpdate.Text = "Last Update: " + DateTime.Now.ToString()));
+            
             File.WriteAllText(@"E:\CurrentWeather.txt", str);
             //Console.WriteLine(temp + " " + feels + " " + state);
            
