@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lblContent = new System.Windows.Forms.Label();
             this.lblLastUpdate = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             this.ClientSize = new System.Drawing.Size(407, 68);
             this.Controls.Add(this.lblLastUpdate);
             this.Controls.Add(this.lblContent);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "GetWeather";
             this.ResumeLayout(false);
